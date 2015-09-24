@@ -3,6 +3,8 @@
 \usepackage{biblatex}
 \usepackage[titletoc,title,page]{appendix}
 \usepackage[xindy,nonumberlist,nopostdot]{glossaries}
+\usepackage{float}
+\usepackage{fancyhdr}
 
 \bibliography{huiswerk}
 \makeglossaries
@@ -11,12 +13,23 @@
 \title{Huiswerk \\ Essential Skills}
 \author{Jeroen Schutrup}
 \date{\today}
-
+\renewcommand{\headrulewidth}{0pt}	% No vertical line in the header
+\pagestyle{fancy}{
+	\fancyhead{}
+	\fancyfoot{}
+	\fancyfoot[LO,RE]{Huiswerk}
+	\fancyfoot[CO,CE]{Essential Skills}
+	\fancyfoot[RO,LE]{Jeroen Schutrup}
+}
+	
 \begin{document}
 \maketitle
 \cleardoublepage{}
 \tableofcontents
 \cleardoublepage{}
 
+\input{./tex/inleiding.tex}
+\cleardoublepage{}
 \input{./tex/xml.tex}
+\cleardoublepage{}
 \end{document}
