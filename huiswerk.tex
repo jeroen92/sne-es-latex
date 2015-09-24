@@ -15,10 +15,10 @@
 \makeglossaries
 \glsaddall
 
-\let\tmp\oddsidemargin
-\let\oddsidemargin\evensidemargin
-\let\evensidemargin\tmp
-\reversemarginpar
+\let\tmp\oddsidemargin						% These lines fix an issue for double sided printing
+\let\oddsidemargin\evensidemargin				% By default, the odd page is aligned left instead of right
+\let\evensidemargin\tmp						% We want the odd page to be aligned right, and the even page 
+\reversemarginpar						% to be aligned to the left
 
 \title{Huiswerk \\ Essential Skills}
 \author{Jeroen Schutrup}
@@ -33,13 +33,13 @@
 }
 
 \begin{document}
-\pagestyle{empty}
+\pagestyle{empty}							% Don't show header & footer on first x pages
 \pagenumbering{gobble}							% Don't number the first x pages
 \maketitle
 \cleardoublepage{}							% cleardoublepage ensures the next contents start on the right page (double sided printing)
 \tableofcontents
 \cleardoublepage{}
-\pagestyle{fancy}
+\pagestyle{fancy}							% Print header and footers from now on
 \pagenumbering{arabic}							% We start page numbering after the table of contents has been printed
 \input{./tex/inleiding.tex}						% For the sake of a modular document layout...
 \cleardoublepage{}
