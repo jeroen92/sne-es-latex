@@ -8,6 +8,7 @@
 \usepackage{lastpage}
 \usepackage{minted}
 \usepackage{graphicx}
+\usepackage[titletoc,title,page]{appendix}
 
 \bibliography{huiswerk}
 \makeglossaries
@@ -24,10 +25,7 @@
 	\fancyfoot[CO,CE]{Essential Skills}
 	\fancyfoot[RO,LE]{Page \thepage\ of \pageref{LastPage}}
 }
-\let\oldPYGdefault\PYGdefault
-\def\PYGdefault#1#2{\hbox{\oldPYGdefault{#1}{#2}}\allowbreak{
-\makeatother}}
-	
+
 \begin{document}
 \maketitle
 \cleardoublepage{}
@@ -38,4 +36,8 @@
 \cleardoublepage{}
 \input{./tex/xml.tex}
 \cleardoublepage{}
+\begin{appendices}
+	\input{./appendices/xmldtdsrc.tex}
+	\newpage
+\end{appendices}
 \end{document}
