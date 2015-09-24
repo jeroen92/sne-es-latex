@@ -12,6 +12,7 @@ all:
 
 build:
 	$(PDFLATEX) $(FILENAME).tex
+	$(PDFLATEX) $(FILENAME).tex
 
 view:
 	$(EVINCE) $(FILENAME).pdf
