@@ -7,6 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{minted}
+\usepackage{graphicx}
 
 \bibliography{huiswerk}
 \makeglossaries
@@ -23,6 +24,9 @@
 	\fancyfoot[CO,CE]{Essential Skills}
 	\fancyfoot[RO,LE]{Page \thepage\ of \pageref{LastPage}}
 }
+\let\oldPYGdefault\PYGdefault
+\def\PYGdefault#1#2{\hbox{\oldPYGdefault{#1}{#2}}\allowbreak{
+\makeatother}}
 	
 \begin{document}
 \maketitle

@@ -1,0 +1,9 @@
+In order to use the breaklines directive in minted, you'll need to copy the latest version to your latex path.
+
+First make a backup of your existing minted.sty:
+sudo cp /usr/share/texlive/texmf-dist/tex/latex/minted/minted.sty /usr/share/texlive/texmf-dist/tex/latex/minted/minted.sty.bak
+
+Then copy minded 2.0 in this src folder to your minted folder:
+sudo cp Documents/Latex/src/minted.sty /usr/share/texlive/texmf-dist/tex/latex/minted/minted.sty
+
+Done
