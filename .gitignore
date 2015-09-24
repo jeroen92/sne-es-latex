@@ -1,0 +1,14 @@
+*.aux
+*.dvi
+*.out
+*.blg
+*.bbl
+*.xml
+*.toc
+*.bcf
+*.log
+*.pdf
+*.swp
+*.swo
+*.glo
+*.xdy

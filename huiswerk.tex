@@ -1,0 +1,22 @@
+\documentclass[twoside,a4paper]{article}
+
+\usepackage{biblatex}
+\usepackage[titletoc,title,page]{appendix}
+\usepackage[xindy,nonumberlist,nopostdot]{glossaries}
+
+\bibliography{huiswerk}
+\makeglossaries
+\glsaddall
+
+\title{Huiswerk \\ Essential Skills}
+\author{Jeroen Schutrup}
+\date{\today}
+
+\begin{document}
+\maketitle
+\cleardoublepage{}
+\tableofcontents
+\cleardoublepage{}
+
+\input{./tex/xml.tex}
+\end{document}

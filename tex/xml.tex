@@ -1,0 +1,8 @@
+\section{eXtended Markup Language}
+SOAP stands for Simple Object Access Protocol, and offers a way for applications to interact with one another. It extensively uses XML to wrap up it's messages. The SOAP standard defines a couple of characteristics. First, every SOAP call is wrapped in an Envelope. Inside the Envelope, a Header may or may not be present. The Header may contain additional information belonging to the request, for example authentication information or preferences. The second element in the Envelope is the Message. This element contains the actual request from the client, or response from the server.
+
+As I wanted to see how a simple SOAP interaction would look like, I created two Python scripts. One sets up an HTTP server and serves a SOAP accessible function. The seconds scripts initiates a client request. The function published by the SOAP server is calculating the square root of a given value.
+
+As to be seen in the code blocks below, the client asks the server to calculate the square root of 9. The server has wrapped it's response to the request in a calculateRootResponse XML element, which contains one sub element. Namely, the outcome of the calculateRoot function. The nice thing to see here, is that the response of the server is treated like a regular Python object. The response.squareRoot contains the response of the server. The scripts were created with the help of the pysimplesoap package.
+
+I found SOAP very easy to use myself. However, the overhead for using SOAP is quite large. According to Wikipedia, financial institutions experienced their message size increased by four times after switching from CDR to SOAP. This can be an argument against using SOAP when trafficking large amounts of data.
