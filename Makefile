@@ -1,6 +1,6 @@
 FILENAME = ./huiswerk
 
-PDFLATEX = /usr/bin/pdflatex
+PDFLATEX = /usr/bin/pdflatex --shell-escape
 EVINCE = /usr/bin/evince
 
 CLEANEXTS = aux,dvi,out,blg,bbl,*.xml,toc,bcf,log,glg,glo,gls,glsdefs,pyg,xdy,hst,ver

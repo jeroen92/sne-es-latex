@@ -6,3 +6,56 @@ As I wanted to see how a simple SOAP interaction would look like, I created two 
 As to be seen in the code blocks below, the client asks the server to calculate the square root of 9. The server has wrapped it's response to the request in a calculateRootResponse XML element, which contains one sub element. Namely, the outcome of the calculateRoot function. The nice thing to see here, is that the response of the server is treated like a regular Python object. The response.squareRoot contains the response of the server. The scripts were created with the help of the pysimplesoap package.
 
 I found SOAP very easy to use myself. However, the overhead for using SOAP is quite large. According to Wikipedia, financial institutions experienced their message size increased by four times after switching from CDR to SOAP. This can be an argument against using SOAP when trafficking large amounts of data.
+
+\subsection{Experimenting}
+As we would like to see how SOAP works, we set up a client-server testapplication in Python. Below is the code for the server.
+
+\begin{minted}{python}
+#!/usr/local/bin/python
+ 
+from pysimplesoap.server import SoapDispatcher, SOAPHandler
+from BaseHTTPServer import HTTPServer
+from math import sqrt
+ 
+def calculateRoot(value):
+  return sqrt(value)
+ 
+dispatcher = SoapDispatcher(
+    'root_dispatcher',
+    location = 'http://localhost:8000/',
+    action = 'http://localhost:8000/',
+    namespace = 'http://bristol.studlab.os3.nl/root.wsdl', prefix='ns0',
+    trace = True,
+    ns = True)
+ 
+dispatcher.register_function('calculateRoot', calculateRoot,
+    returns = {'squareRoot': float},
+    args = { 'value': float })
+ 
+print 'Starting HTTP server'
+server = HTTPServer(("", 8000), SOAPHandler)
+server.dispatcher = dispatcher
+server.serve_forever()
+\end{minted}
+
+\paragraph{Client Application}\mbox{}\\
+Below is our client application. Pimped with the minted package for \LaTeX.
+
+\begin{minted}{python}
+#!/usr/local/bin/python
+ 
+from pysimplesoap.client import SoapClient, SoapFault
+ 
+client = SoapClient(
+  location = "http://localhost:8000/",
+  action = 'http://localhost:8000/',
+  namespace = "http://bristol.studlab.os3.nl/root.wsdl", 
+  soap_ns='soap',
+  trace = True,
+  ns = False)
+ 
+response = client.calculateRoot(value=9)
+ 
+result = response.squareRoot
+print float(result)
+\end{minted}
