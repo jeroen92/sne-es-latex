@@ -2,20 +2,23 @@ FILENAME = ./huiswerk
 
 PDFLATEX = /usr/bin/pdflatex --shell-escape
 EVINCE = /usr/bin/evince
+XINDY = /usr/bin/xindy
+BIBER = /usr/bin/biber
+LATEXMK = /usr/bin/latexmk
+MAKEGLOSSARIES = /usr/bin/makeglossaries
+XINDY_OPTS = -t $(FILENAME).glg -o $(FILENAME).gls $(FILENAME).glo
 
 CLEANEXTS = aux,dvi,out,blg,bbl,*.xml,toc,bcf,log,glg,glo,gls,glsdefs,pyg,xdy,hst,ver
 
 all:
 	make build
-	make clean
 	make view
 
 build:
-	$(PDFLATEX) $(FILENAME).tex
-	$(PDFLATEX) $(FILENAME).tex
+	$(LATEXMK) -bibtex -pdf -pdflatex='pdflatex -shell-escape'
 
 view:
 	$(EVINCE) $(FILENAME).pdf
 
 clean:
-	rm -f $(FILENAME).{$(CLEANEXTS)}
+	$(LATEXMK) -C
