@@ -15,6 +15,11 @@
 \makeglossaries
 \glsaddall
 
+\let\tmp\oddsidemargin
+\let\oddsidemargin\evensidemargin
+\let\evensidemargin\tmp
+\reversemarginpar
+
 \title{Huiswerk \\ Essential Skills}
 \author{Jeroen Schutrup}
 \date{\today}
@@ -28,11 +33,13 @@
 }
 
 \begin{document}
+\pagestyle{empty}
 \pagenumbering{gobble}							% Don't number the first x pages
 \maketitle
 \cleardoublepage{}							% cleardoublepage ensures the next contents start on the right page (double sided printing)
 \tableofcontents
 \cleardoublepage{}
+\pagestyle{fancy}
 \pagenumbering{arabic}							% We start page numbering after the table of contents has been printed
 \input{./tex/inleiding.tex}						% For the sake of a modular document layout...
 \cleardoublepage{}
