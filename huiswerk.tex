@@ -20,14 +20,14 @@
 \let\evensidemargin\tmp						% We want the odd page to be aligned right, and the even page 
 \reversemarginpar						% to be aligned to the left
 
-\title{Huiswerk \\ Essential Skills}
-\author{Jeroen Schutrup}
+\title{Assignment-6 \\ Essential Skills}
+\author{Jeroen Schutrup, Siem Hermans, Bram ter Borch}
 \date{\today}
 \renewcommand{\headrulewidth}{0pt}					% No vertical line in the header
 \pagestyle{fancy}{
 	\fancyhead{}
 	\fancyfoot{}
-	\fancyfoot[LO,RE]{Huiswerk}					% For double sided printing, layout differs on even/odd pages
+	\fancyfoot[LO,RE]{Assignment-6}					% For double sided printing, layout differs on even/odd pages
 	\fancyfoot[CO,CE]{Essential Skills}				% "
 	\fancyfoot[RO,LE]{Page \thepage\ of \pageref{LastPage}}		% "
 }
@@ -41,9 +41,11 @@
 \cleardoublepage{}
 \pagestyle{fancy}							% Print header and footers from now on
 \pagenumbering{arabic}							% We start page numbering after the table of contents has been printed
-\input{./tex/inleiding.tex}						% For the sake of a modular document layout...
+\input{./tex/preamble.tex}						% For the sake of a modular document layout...
 \cleardoublepage{}
 \input{./tex/xml.tex}
+\cleardoublepage{}
+\input{./tex/regex.tex
 \cleardoublepage{}
 \printbibliography{}							% Print the bibliograpy => page with external sources/references
 \newpage

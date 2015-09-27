@@ -1,4 +1,4 @@
-FILENAME = ./huiswerk
+FILENAME = ./assignment6
 
 PDFLATEX = /usr/bin/pdflatex --shell-escape
 EVINCE = /usr/bin/evince
