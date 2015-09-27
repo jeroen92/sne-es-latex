@@ -1,6 +1,6 @@
 \section{Regex Engines}
 Group 4, 5 and 6 need to explain what the difference is about text-directed and regex-directed engine for regex.
-source : [[http://www.regular-expressions.info/engine.html]]
+source : http://www.regular-expressions.info/engine.html
 
 \subsection{technologies}
 There are two underlying technologies commonly used to implement a regex match 
@@ -24,9 +24,9 @@ must work through a match. An NFA engine can support many things that a DFA cann
 Basically the regex-directed engine is way more flexible.
 It contain options like:
 \begin{itemize}
-  \item lazy quantifiers (backtratracking of options) ex: <.+?>
+  \item lazy quantifiers (backtratracking of options) ex: \begin{verbatim}<.+?>\end{verbatim}
   \item backreferences (Matches the same text as matched previously)
-  \item atomic grouping (based to a capturing group but without backtracking) ex: a(?>bc|b)c
+  \item atomic grouping (based to a capturing group but without backtracking) ex: \begin{verbatim}a(?>bc|b)c\end{verbatim}
   \item possessive quantifiers (prevent the engine from trying all permutations)
 \end{itemize}
 
