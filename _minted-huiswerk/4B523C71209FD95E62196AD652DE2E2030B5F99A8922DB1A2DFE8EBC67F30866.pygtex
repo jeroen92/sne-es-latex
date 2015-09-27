@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}!/usr/local/bin/python}
+
+\PYG{k+kn}{from} \PYG{n+nn}{pysimplesoap.client} \PYG{k+kn}{import} \PYG{n}{SoapClient}\PYG{p}{,} \PYG{n}{SoapFault}
+
+\PYG{n}{client} \PYG{o}{=} \PYG{n}{SoapClient}\PYG{p}{(}
+  \PYG{n}{location} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}http://localhost:8000/\PYGZdq{}}\PYG{p}{,}
+  \PYG{n}{action} \PYG{o}{=} \PYG{l+s}{\PYGZsq{}http://localhost:8000/\PYGZsq{}}\PYG{p}{,}
+  \PYG{n}{namespace} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}http://bristol.studlab.os3.nl/root.wsdl\PYGZdq{}}\PYG{p}{,}
+  \PYG{n}{soap\PYGZus{}ns}\PYG{o}{=}\PYG{l+s}{\PYGZsq{}soap\PYGZsq{}}\PYG{p}{,}
+  \PYG{n}{trace} \PYG{o}{=} \PYG{n+nb+bp}{True}\PYG{p}{,}
+  \PYG{n}{ns} \PYG{o}{=} \PYG{n+nb+bp}{False}\PYG{p}{)}
+
+\PYG{n}{response} \PYG{o}{=} \PYG{n}{client}\PYG{o}{.}\PYG{n}{calculateRoot}\PYG{p}{(}\PYG{n}{value}\PYG{o}{=}\PYG{l+m+mi}{9}\PYG{p}{)}
+
+\PYG{n}{result} \PYG{o}{=} \PYG{n}{response}\PYG{o}{.}\PYG{n}{squareRoot}
+\PYG{k}{print} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{result}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}!/usr/local/bin/python}
+
+\PYG{k+kn}{from} \PYG{n+nn}{pysimplesoap.server} \PYG{k+kn}{import} \PYG{n}{SoapDispatcher}\PYG{p}{,} \PYG{n}{SOAPHandler}
+\PYG{k+kn}{from} \PYG{n+nn}{BaseHTTPServer} \PYG{k+kn}{import} \PYG{n}{HTTPServer}
+\PYG{k+kn}{from} \PYG{n+nn}{math} \PYG{k+kn}{import} \PYG{n}{sqrt}
+
+\PYG{k}{def} \PYG{n+nf}{calculateRoot}\PYG{p}{(}\PYG{n}{value}\PYG{p}{):}
+  \PYG{k}{return} \PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{value}\PYG{p}{)}
+
+\PYG{n}{dispatcher} \PYG{o}{=} \PYG{n}{SoapDispatcher}\PYG{p}{(}
+    \PYG{l+s}{\PYGZsq{}root\PYGZus{}dispatcher\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{location} \PYG{o}{=} \PYG{l+s}{\PYGZsq{}http://localhost:8000/\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{action} \PYG{o}{=} \PYG{l+s}{\PYGZsq{}http://localhost:8000/\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{namespace} \PYG{o}{=} \PYG{l+s}{\PYGZsq{}http://bristol.studlab.os3.nl/root.wsdl\PYGZsq{}}\PYG{p}{,} \PYG{n}{prefix}\PYG{o}{=}\PYG{l+s}{\PYGZsq{}ns0\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{trace} \PYG{o}{=} \PYG{n+nb+bp}{True}\PYG{p}{,}
+    \PYG{n}{ns} \PYG{o}{=} \PYG{n+nb+bp}{True}\PYG{p}{)}
+
+\PYG{n}{dispatcher}\PYG{o}{.}\PYG{n}{register\PYGZus{}function}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}calculateRoot\PYGZsq{}}\PYG{p}{,} \PYG{n}{calculateRoot}\PYG{p}{,}
+    \PYG{n}{returns} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZsq{}squareRoot\PYGZsq{}}\PYG{p}{:} \PYG{n+nb}{float}\PYG{p}{\PYGZcb{},}
+    \PYG{n}{args} \PYG{o}{=} \PYG{p}{\PYGZob{}} \PYG{l+s}{\PYGZsq{}value\PYGZsq{}}\PYG{p}{:} \PYG{n+nb}{float} \PYG{p}{\PYGZcb{})}
+
+\PYG{k}{print} \PYG{l+s}{\PYGZsq{}Starting HTTP server\PYGZsq{}}
+\PYG{n}{server} \PYG{o}{=} \PYG{n}{HTTPServer}\PYG{p}{((}\PYG{l+s}{\PYGZdq{}\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{8000}\PYG{p}{),} \PYG{n}{SOAPHandler}\PYG{p}{)}
+\PYG{n}{server}\PYG{o}{.}\PYG{n}{dispatcher} \PYG{o}{=} \PYG{n}{dispatcher}
+\PYG{n}{server}\PYG{o}{.}\PYG{n}{serve\PYGZus{}forever}\PYG{p}{()}
+\end{Verbatim}
