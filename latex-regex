@@ -1,0 +1,53 @@
+\documentclass[a4paper,twoside]{article}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage[stretch=10]{microtype}
+\usepackage{booktabs}
+\usepackage{tabulary}
+\usepackage{biblatex}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[titletoc,title,page]{appendix}
+\usepackage[xindy,nonumberlist,nopostdot]{glossaries}
+\usepackage{float}
+
+
+\title{Essential Skills - Assignment-6 (Latex and VCS)}
+\date{\today}
+\author{Bram ter Borch}
+
+\pagestyle{fancy}{
+	\fancyhead{}
+	\fancyfoot{}
+	\fancyfoot[LO,RE] {ES}
+	\fancyfoot[CO,CE]{Assignment-6}
+	\fancyfoot[RO,LE]{page \thepage\ of \pageref{LastPage}}
+}
+
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+
+\begin{document}
+\pagestyle{empty}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\tableofcontents
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\include{tex/preamble}
+\include{tex/regex}
+\printbibliography{}
+\newpage
+
+\end{document}
+
+
+
+
